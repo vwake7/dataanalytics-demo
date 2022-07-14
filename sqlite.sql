@@ -37,9 +37,4 @@ AVG(CAST("Conversion Rate (%)"AS FLOAT))
 FROM wanalytics
 GROUP BY "Source / Medium" ORDER BY 2 DESC;
 
---other sql that u may find useful
-WITH cte1 as (
-SELECT  tdate,"Source / Medium",Revenue,
-row_number() OVER (PARTITION BY tdate ORDER BY CAST(REPLACE("Revenue",',','') AS INT) DESC ) AS rn
-FROM wanalytics )
-;
+
